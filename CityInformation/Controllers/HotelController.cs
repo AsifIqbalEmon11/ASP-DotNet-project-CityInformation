@@ -56,8 +56,8 @@ namespace CityInformation.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-        [Route("api/hotels/update/{id}")]
-        [HttpGet]
+        [Route("api/hotels/update")]
+        [HttpPost]
         public HttpResponseMessage Update(HotelDTO hotel)
         {
             try
@@ -70,7 +70,7 @@ namespace CityInformation.Controllers
             }
         }
         [Route("api/hotels/delete/{id}")]
-        [HttpGet]
+        [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
             try

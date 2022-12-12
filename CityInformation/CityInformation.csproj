@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -112,7 +113,7 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Project\BLL\BLL.csproj">
+    <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{8df155c9-9058-4e5d-8296-2c4d3bc9f0ee}</Project>
       <Name>BLL</Name>
     </ProjectReference>

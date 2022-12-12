@@ -90,11 +90,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\AdminRepo.cs" />
+    <Compile Include="Repo\CarRepo.cs" />
     <Compile Include="Repo\CityRepo.cs" />
     <Compile Include="Repo\CustomerRepo.cs" />
     <Compile Include="Repo\DivisionRepo.cs" />
     <Compile Include="Repo\HotelRepo.cs" />
     <Compile Include="Repo\ManagerRepo.cs" />
+    <Compile Include="Repo\RentCarRepo.cs" />
     <Compile Include="Repo\Repo.cs" />
     <Compile Include="Repo\RoomRepo.cs" />
   </ItemGroup>

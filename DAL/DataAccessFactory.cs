@@ -39,6 +39,14 @@ namespace DAL
         {
             return new CustomerRepo();
         }
+        public static IRepo<RentCar, int, RentCar> RentCarDataAccess()
+        {
+            return new RentCarRepo();
+        }
+        public static IRepo<Car, int, Car> CarDataAccess()
+        {
+            return new CarRepo();
+        }
 
 
     }

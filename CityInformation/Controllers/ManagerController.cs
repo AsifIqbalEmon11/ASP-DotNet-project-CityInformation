@@ -10,7 +10,7 @@ namespace CityInformation.Controllers
 {
     public class ManagerController : ApiController
     {
-        [Route("api/managers")]
+        [Route("api/manager")]
         public HttpResponseMessage Get()
         {
             try

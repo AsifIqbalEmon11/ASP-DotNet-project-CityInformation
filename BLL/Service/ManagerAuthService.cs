@@ -27,16 +27,16 @@ namespace BLL.Service
             var token = mapper.Map<ManagerTokenDTO>(rs);
             return token;
         }
-
-        public static bool IsTokenValid(string token)
+        public static bool IsAuthenticated(string token)
         {
-            var tk = DataAccessFactory.ManagerTokenDataAccess().Get(token);
-            if (tk != null && tk.ExpirationTime == null)
-            {
-                return true;
-            }
-            return false;
+            var rs = DataAccessFactory.ManagerAuthDataAccess().isAuthenticate(token);
+            return rs;
 
         }
+        public static bool Logout(string token)
+        {
+            return DataAccessFactory.ManagerAuthDataAccess().Logout(token);
+        }
+
     }
 }

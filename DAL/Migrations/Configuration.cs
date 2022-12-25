@@ -136,6 +136,21 @@
             }
             context.Managers.AddOrUpdate(managers.ToArray());
 
+            List<ManagerToken> mtoken = new List<ManagerToken>();        
+
+            for (int i = 1; i <= 1; i++)
+            {
+                mtoken.Add(new ManagerToken()
+                {
+                    Id = i,
+                    TKey = "ABCDERFG",
+                    CreationTime = System.DateTime.Now,
+                    ManagerId=1,
+
+                });
+            }
+            context.ManagerTokens.AddOrUpdate(mtoken.ToArray());
+
 
             //  This method will be called after migrating to the latest version.
 

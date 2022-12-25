@@ -25,9 +25,11 @@ namespace DAL.Repo
             if (data != null)
             {
                 string token = Guid.NewGuid().ToString();
+                t = new ManagerToken();
                 t.ManagerId = data.Id;
                 t.TKey = token;
                 t.CreationTime = DateTime.Now;
+                db.ManagerTokens.Add(t);
                 db.SaveChanges();
 
             }
@@ -49,6 +51,24 @@ namespace DAL.Repo
         public Manager Get(int id)
         {
             return db.Managers.Find(id);
+        }
+
+        public bool isAuthenticate(string obj)
+        {
+            var rs = db.ManagerTokens.Any(e => e.TKey.Equals(obj) && e.ExpirationTime == null);
+            return rs;
+        }
+
+        public bool Logout(string obj)
+        {
+            var t = db.ManagerTokens.FirstOrDefault(e => e.TKey.Equals(obj));
+            if (t != null)
+            {
+                t.ExpirationTime = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Manager Update(Manager obj)

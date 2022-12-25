@@ -1,5 +1,6 @@
 ﻿using BLL.DTO;
 using BLL.Service;
+using CityInformation.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,23 @@ namespace CityInformation.Controllers
    [EnableCors("*", "*", "*")]
     public class ManagerController : ApiController
     {
+        [Route("api/manager/logout")]
+        [HttpGet]
+        public HttpResponseMessage Logout()
+        {
+            var token = Request.Headers.Authorization.ToString();
+            if (token != null)
+            {
+                var rs = ManagerAuthService.Logout(token);
+                if (rs)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, "Sucess fully logged out");
+                }
+
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid token to logout");
+        }
+
         [Route("api/manager/login")]
         [HttpPost]
         public HttpResponseMessage Login(ManagerDTO manager)
@@ -33,7 +51,7 @@ namespace CityInformation.Controllers
 
             }
         }
-
+        [ManagerLogged]
         [Route("api/manager")]
         public HttpResponseMessage Get()
         {

@@ -18,7 +18,6 @@ namespace DAL.EF.Models
         [Required]
         public System.DateTime CreationTime { get; set; }
 
-        [Required]
         public Nullable<System.DateTime> ExpirationTime { get; set; }
 
         [ForeignKey("Manager")]

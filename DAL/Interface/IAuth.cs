@@ -9,5 +9,8 @@ namespace DAL.Interface
     public interface IAuth<RET,CLASS>
     {
          RET Authenticate(CLASS obj);
+        bool isAuthenticate(string obj);
+
+        bool Logout(string obj);
     }
 }

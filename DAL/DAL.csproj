@@ -124,6 +124,14 @@
     <Compile Include="Migrations\202212251104384_NullableOut.designer.cs">
       <DependentUpon>202212251104384_NullableOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212251335031_ValueAdded.cs" />
+    <Compile Include="Migrations\202212251335031_ValueAdded.designer.cs">
+      <DependentUpon>202212251335031_ValueAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251336394_Valid.cs" />
+    <Compile Include="Migrations\202212251336394_Valid.designer.cs">
+      <DependentUpon>202212251336394_Valid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\AdminRepo.cs" />
@@ -186,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212251104384_NullableOut.resx">
       <DependentUpon>202212251104384_NullableOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251335031_ValueAdded.resx">
+      <DependentUpon>202212251335031_ValueAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251336394_Valid.resx">
+      <DependentUpon>202212251336394_Valid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

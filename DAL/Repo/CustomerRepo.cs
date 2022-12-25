@@ -27,6 +27,7 @@ namespace DAL.Repo
                 t.CustomerId = obj.Id;
                 t.TKey = token;
                 t.CreationTime = DateTime.Now;
+                db.CustomerTokens.Add(t);
                 db.SaveChanges();
 
             }
@@ -48,6 +49,24 @@ namespace DAL.Repo
         public Customer Get(int id)
         {
             return db.Customers.Find(id);
+        }
+
+        public bool isAuthenticate(string obj)
+        {
+            var rs = db.CustomerTokens.Any(e => e.TKey.Equals(obj) && e.ExpirationTime == null);
+            return rs;
+        }
+
+        public bool Logout(string obj)
+        {
+            var t = db.CustomerTokens.FirstOrDefault(e => e.TKey.Equals(obj));
+            if (t != null)
+            {
+                t.ExpirationTime = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Customer Update(Customer obj)

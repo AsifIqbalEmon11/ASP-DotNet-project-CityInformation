@@ -28,9 +28,11 @@ namespace DAL.Repo
                 t.AdminId = obj.Id;
                 t.TKey = token;
                 t.CreationTime = DateTime.Now;
+                db.AdminTokens.Add(t);
                 db.SaveChanges();
 
             }
+
             return t;
         }
 
@@ -49,6 +51,24 @@ namespace DAL.Repo
         public Admin Get(int id)
         {
             return db.Admins.Find(id);
+        }
+
+        public bool isAuthenticate(string obj)
+        {
+            var rs = db.AdminTokens.Any(e => e.TKey.Equals(obj) && e.ExpirationTime == null);
+            return rs;
+        }
+
+        public bool Logout(string obj)
+        {
+            var t = db.AdminTokens.FirstOrDefault(e => e.TKey.Equals(obj));
+            if (t != null)
+            {
+                t.ExpirationTime = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Admin Update(Admin obj)

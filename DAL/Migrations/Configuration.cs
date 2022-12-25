@@ -103,6 +103,39 @@
             }
             context.Rooms.AddOrUpdate(rooms.ToArray());
 
+            List<Manager> managers = new List<Manager>();
+            string[] manname = new string[] { "Asif",
+                "Jamin",
+                "Jim "
+            };
+            string[] db = new string[] { "02-4-22",
+                "03-5-09",
+            };
+            string[] usname = new string[] { "asif11",
+                "jim22",
+                "jamin33",
+            };
+            string[] pass = new string[] { "1111",
+                "2222",
+                "3333",
+            };
+
+            for (int i = 1; i <= 2; i++)
+            {
+                managers.Add(new Manager()
+                {
+                    Id = i,
+                    Name = manname[rand.Next(0, 2)],
+                    Username = usname[rand.Next(0, 2)],
+                    Password = pass[rand.Next(0, 2)],
+                    Gender= "Male",
+                    DOB = db[rand.Next(0, 2)],
+                    AdminId = 1,
+
+                });
+            }
+            context.Managers.AddOrUpdate(managers.ToArray());
+
 
             //  This method will be called after migrating to the latest version.
 

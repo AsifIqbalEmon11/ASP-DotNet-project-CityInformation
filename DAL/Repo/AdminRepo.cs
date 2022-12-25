@@ -8,13 +8,30 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class AdminRepo : Repo, IRepo<Admin, int, Admin>
+    internal class AdminRepo : Repo, IRepo<Admin, int, Admin>,IAuth<AdminToken,Admin>
     {
         public Admin Add(Admin obj)
         {
             db.Admins.Add(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
+        }
+        
+
+        public AdminToken Authenticate(Admin obj)
+        {
+            var data = db.Admins.FirstOrDefault(u => u.Username.Equals(obj.Username) && u.Password.Equals(obj.Password));
+            AdminToken t = null;
+            if (data != null)
+            {
+                string token = Guid.NewGuid().ToString();
+                t.AdminId = obj.Id;
+                t.TKey = token;
+                t.CreationTime = DateTime.Now;
+                db.SaveChanges();
+
+            }
+            return t;
         }
 
         public bool Delete(int id)

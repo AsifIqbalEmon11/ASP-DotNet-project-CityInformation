@@ -47,6 +47,30 @@ namespace DAL
         {
             return new CarRepo();
         }
+        public static IAuth<AdminToken, Admin> AdminAuthDataAccess()
+        {
+            return new AdminRepo();
+        }
+        public static IAuth<CustomerToken, Customer> CustomerAuthDataAccess()
+        {
+            return new CustomerRepo();
+        }
+        public static IAuth<ManagerToken, Manager> ManagerAuthDataAccess()
+        {
+            return new ManagerRepo();
+        }
+        public static IRepo<AdminToken, string, AdminToken> AdminTokenDataAccess()
+        {
+            return new AdminTokenRepo();
+        }
+        public static IRepo<ManagerToken, string, ManagerToken> ManagerTokenDataAccess()
+        {
+            return new ManagerTokenRepo();
+        }
+        public static IRepo<CustomerToken, string, CustomerToken> CustomerTokenDataAccess()
+        {
+            return new CustomerTokenRepo();
+        }
 
 
     }

@@ -53,8 +53,12 @@
   <ItemGroup>
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\Models\Admin.cs" />
+    <Compile Include="EF\Models\AdminToken.cs" />
     <Compile Include="EF\Models\City.cs" />
     <Compile Include="EF\Models\Car.cs" />
+    <Compile Include="EF\Models\HotelBook.cs" />
+    <Compile Include="EF\Models\ManagerToken.cs" />
+    <Compile Include="EF\Models\CustomerToken.cs" />
     <Compile Include="EF\Models\Customer.cs" />
     <Compile Include="EF\Models\Division.cs" />
     <Compile Include="EF\Models\Manager.cs" />
@@ -62,6 +66,7 @@
     <Compile Include="EF\Models\Room.cs" />
     <Compile Include="EF\Models\Hotel.cs" />
     <Compile Include="EF\ProjectContext.cs" />
+    <Compile Include="Interface\IAuth.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Migrations\202212101357509_ProjectDBadded.cs" />
     <Compile Include="Migrations\202212101357509_ProjectDBadded.designer.cs">
@@ -87,11 +92,46 @@
     <Compile Include="Migrations\202212120641393_NewEntityAdded.designer.cs">
       <DependentUpon>202212120641393_NewEntityAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212241425596_DataAdd.cs" />
+    <Compile Include="Migrations\202212241425596_DataAdd.designer.cs">
+      <DependentUpon>202212241425596_DataAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212250728090_TokenEntity.cs" />
+    <Compile Include="Migrations\202212250728090_TokenEntity.designer.cs">
+      <DependentUpon>202212250728090_TokenEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212250730347_DbsetToken.cs" />
+    <Compile Include="Migrations\202212250730347_DbsetToken.designer.cs">
+      <DependentUpon>202212250730347_DbsetToken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251007573_NewDataAdded.cs" />
+    <Compile Include="Migrations\202212251007573_NewDataAdded.designer.cs">
+      <DependentUpon>202212251007573_NewDataAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251022004_ManagerDataAdded.cs" />
+    <Compile Include="Migrations\202212251022004_ManagerDataAdded.designer.cs">
+      <DependentUpon>202212251022004_ManagerDataAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251040068_nothing.cs" />
+    <Compile Include="Migrations\202212251040068_nothing.designer.cs">
+      <DependentUpon>202212251040068_nothing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251042229_simple.cs" />
+    <Compile Include="Migrations\202212251042229_simple.designer.cs">
+      <DependentUpon>202212251042229_simple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251104384_NullableOut.cs" />
+    <Compile Include="Migrations\202212251104384_NullableOut.designer.cs">
+      <DependentUpon>202212251104384_NullableOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\AdminRepo.cs" />
+    <Compile Include="Repo\AdminTokenRepo.cs" />
     <Compile Include="Repo\CarRepo.cs" />
     <Compile Include="Repo\CityRepo.cs" />
+    <Compile Include="Repo\CustomerTokenRepo.cs" />
+    <Compile Include="Repo\ManagerTokenRepo.cs" />
     <Compile Include="Repo\CustomerRepo.cs" />
     <Compile Include="Repo\DivisionRepo.cs" />
     <Compile Include="Repo\HotelRepo.cs" />
@@ -122,6 +162,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212120641393_NewEntityAdded.resx">
       <DependentUpon>202212120641393_NewEntityAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212241425596_DataAdd.resx">
+      <DependentUpon>202212241425596_DataAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212250728090_TokenEntity.resx">
+      <DependentUpon>202212250728090_TokenEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212250730347_DbsetToken.resx">
+      <DependentUpon>202212250730347_DbsetToken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251007573_NewDataAdded.resx">
+      <DependentUpon>202212251007573_NewDataAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251022004_ManagerDataAdded.resx">
+      <DependentUpon>202212251022004_ManagerDataAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251040068_nothing.resx">
+      <DependentUpon>202212251040068_nothing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251042229_simple.resx">
+      <DependentUpon>202212251042229_simple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251104384_NullableOut.resx">
+      <DependentUpon>202212251104384_NullableOut.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -20,8 +20,23 @@ namespace DAL.EF.Models
         [StringLength(200)]
         [Required]
         public string DOB { get; set; }
+
+        [StringLength(20)]
+        [Required]
+        public string Username { get; set; }
+        [StringLength(20)]
+        [Required]
+        public string Password { get; set; }
+
         [ForeignKey("Admin")]
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
         public virtual Admin Admin { get; set; }
+
+        public virtual List<ManagerToken> ManagerTokens { get; set; }
+
+        public Manager()
+        {
+            ManagerTokens = new List<ManagerToken>();
+        }
     }
 }

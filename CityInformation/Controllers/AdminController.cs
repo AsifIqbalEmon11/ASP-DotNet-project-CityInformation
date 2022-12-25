@@ -11,16 +11,15 @@ using System.Web.Http.Cors;
 namespace CityInformation.Controllers
 {
     [EnableCors("*", "*", "*")]
-    public class HotelController : ApiController
+    public class AdminController : ApiController
     {
-        
+        [Route("api/Admin")]
 
-        [Route("api/hotel")]
         public HttpResponseMessage Get()
         {
             try
             {
-                var data = HotelService.Get();
+                var data = AdminService.Get();
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)
@@ -29,13 +28,13 @@ namespace CityInformation.Controllers
             }
         }
 
-        [Route("api/hotel/add")]
+        [Route("api/Admin/add")]
         [HttpPost]
-        public HttpResponseMessage Add(HotelDTO hotel)
+        public HttpResponseMessage Add(AdminDTO Admin)
         {
             try
             {
-                var data = HotelService.Add(hotel);
+                var data = AdminService.Add(Admin);
                 if (data != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -47,45 +46,44 @@ namespace CityInformation.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-        [Route("api/hotels/{id}")]
+        [Route("api/Admin/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, HotelService.Get(id));
+                return Request.CreateResponse(HttpStatusCode.OK, AdminService.Get(id));
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-        [Route("api/hotels/update")]
+        [Route("api/Admin/update")]
         [HttpPost]
-        public HttpResponseMessage Update(HotelDTO hotel)
+        public HttpResponseMessage Update(AdminDTO Admin)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, HotelService.Update(hotel));
+                return Request.CreateResponse(HttpStatusCode.OK, AdminService.Update(Admin));
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-        [Route("api/hotels/delete/{id}")]
+        [Route("api/Admin/delete/{id}")]
         [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, HotelService.Delete(id));
+                return Request.CreateResponse(HttpStatusCode.OK, AdminService.Delete(id));
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-
     }
 }

@@ -8,13 +8,29 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class CustomerRepo : Repo, IRepo<Customer, int, Customer>
+    internal class CustomerRepo : Repo, IRepo<Customer, int, Customer>, IAuth<CustomerToken,Customer>
     {
         public Customer Add(Customer obj)
         {
             db.Customers.Add(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
+        }
+
+        public CustomerToken Authenticate(Customer obj)
+        {
+            var data = db.Customers.FirstOrDefault(u => u.Username.Equals(obj.Username) && u.Password.Equals(obj.Password));
+            CustomerToken t = null;
+            if (data != null)
+            {
+                string token = Guid.NewGuid().ToString();
+                t.CustomerId = obj.Id;
+                t.TKey = token;
+                t.CreationTime = DateTime.Now;
+                db.SaveChanges();
+
+            }
+            return t;
         }
 
         public bool Delete(int id)

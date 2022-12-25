@@ -21,5 +21,13 @@ namespace DAL.EF.Models
         [ForeignKey("Hotel")]
         public int? HotelId { get; set; }
         public virtual Hotel Hotel { get; set; }
+
+        public virtual List<HotelBook> HotelBooks { get; set; }
+
+        public Room()
+        {
+            HotelBooks = new List<HotelBook>();
+
+        }
     }
 }

@@ -50,14 +50,14 @@ namespace BLL.Service
 
         public static HotelDTO Update(HotelDTO div)
         {
+            var data= DataAccessFactory.HotelDataAccess().Get(div.Id);
             var cfg = new MapperConfiguration(c => {
-                c.CreateMap<HotelDTO, Hotel>();
                 c.CreateMap<Hotel, HotelDTO>();
+                c.CreateMap<HotelDTO, Hotel>();
             });
             var mapper = new Mapper(cfg);
             var ht = mapper.Map<Hotel>(div);
-            var data = DataAccessFactory.HotelDataAccess().Update(ht);
-
+            data = DataAccessFactory.HotelDataAccess().Update(ht);
             if (data != null) return mapper.Map<HotelDTO>(data);
             return null;
         }
@@ -66,8 +66,7 @@ namespace BLL.Service
         {
             var data = DataAccessFactory.HotelDataAccess().Delete(id);
 
-            if (data != null) return true;
-            return false;
+            return data;
         }
     }
 }

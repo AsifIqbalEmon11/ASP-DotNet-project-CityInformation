@@ -8,13 +8,30 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class ManagerRepo : Repo, IRepo<Manager, int, Manager>
+    internal class ManagerRepo : Repo, IRepo<Manager, int, Manager>, IAuth<ManagerToken,Manager>
     {
         public Manager Add(Manager obj)
         {
             db.Managers.Add(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
+        }
+      
+
+        public ManagerToken Authenticate(Manager obj)
+        {
+            var data = db.Managers.FirstOrDefault(u => u.Username.Equals(obj.Username) && u.Password.Equals(obj.Password));
+            ManagerToken t = null;
+            if (data != null)
+            {
+                string token = Guid.NewGuid().ToString();
+                t.ManagerId = data.Id;
+                t.TKey = token;
+                t.CreationTime = DateTime.Now;
+                db.SaveChanges();
+
+            }
+            return t;
         }
 
         public bool Delete(int id)

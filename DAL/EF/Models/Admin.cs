@@ -19,10 +19,19 @@ namespace DAL.EF.Models
         [StringLength(200)]
         [Required]
         public string DOB { get; set; }
+        [StringLength(20)]
+        [Required]
+        public string Username { get; set; }
+        [StringLength(20)]
+        [Required]
+        public string Password { get; set; }
+
         public virtual List<Manager> Managers { get; set; }
         public virtual List<Customer> Customers { get; set; }
+        public virtual List<AdminToken> AdminTokens { get; set; }
         public Admin()
         {
+            AdminTokens = new List<AdminToken>();
             Managers = new List<Manager>();
             Customers = new List<Customer>();
         }

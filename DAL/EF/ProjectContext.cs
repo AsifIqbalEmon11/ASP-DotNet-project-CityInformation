@@ -19,5 +19,10 @@ namespace DAL.EF
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<AdminToken> AdminTokens { get; set; }
+
+        public DbSet<CustomerToken> CustomerTokens { get; set; }
+        public DbSet<ManagerToken> ManagerTokens { get; set; }
+
     }
 }

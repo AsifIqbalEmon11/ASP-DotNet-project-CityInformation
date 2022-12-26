@@ -47,6 +47,10 @@ namespace DAL
         {
             return new CarRepo();
         }
+        public static IRepo<HotelBook, int, HotelBook> HotelBookDataAccess()
+        {
+            return new HotelBookRepo();
+        }
         public static IAuth<AdminToken, Admin> AdminAuthDataAccess()
         {
             return new AdminRepo();

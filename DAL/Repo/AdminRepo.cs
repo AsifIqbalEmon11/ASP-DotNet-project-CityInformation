@@ -25,6 +25,7 @@ namespace DAL.Repo
             if (data != null)
             {
                 string token = Guid.NewGuid().ToString();
+                t = new AdminToken();
                 t.AdminId = obj.Id;
                 t.TKey = token;
                 t.CreationTime = DateTime.Now;

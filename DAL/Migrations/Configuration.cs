@@ -151,6 +151,139 @@
             }
             context.ManagerTokens.AddOrUpdate(mtoken.ToArray());
 
+            List<Admin> admins = new List<Admin>();
+            string[] adminanname = new string[] { "Asif",
+                "Jamin",
+                "Jim "
+            };
+            string[] admindob = new string[] { "02-4-22",
+                "03-5-09",
+            };
+            string[] adminusname = new string[] { "asif11",
+                "jim22",
+                "jamin33",
+            };
+            string[] adminpass = new string[] { "1111",
+                "2222",
+                "3333",
+            };
+
+            for (int i = 1; i <= 2; i++)
+            {
+                admins.Add(new Admin()
+                {
+                    Id = i,
+                    Name = adminanname[rand.Next(0, 2)],
+                    Username = adminusname[rand.Next(0, 2)],
+                    Password = adminpass[rand.Next(0, 2)],
+                    Gender = "Male",
+                    DOB = admindob[rand.Next(0, 2)],
+
+
+                });
+            }
+            context.Admins.AddOrUpdate(admins.ToArray());
+
+            List<AdminToken> atoken = new List<AdminToken>();
+
+            for (int i = 1; i <= 1; i++)
+            {
+                atoken.Add(new AdminToken()
+                {
+                    Id = i,
+                    TKey = "ABCDERFG",
+                    CreationTime = System.DateTime.Now,
+                    AdminId = 1,
+
+                });
+            }
+            context.AdminTokens.AddOrUpdate(atoken.ToArray());
+
+            List<RentCar> rents = new List<RentCar>();
+            string[] rcname = new string[] { "Hello Rent A Car",
+                "Cumilla  Rent A Car",
+                "Uttara Rent A Car",
+                "Skyview Rent A Car",
+                "Muzib Rent A Car "
+            };
+            string[] catgname = new string[] { "Azampur",
+                "Sector-11",
+                "Sector-09",
+                "Dhamondi-27",
+                "Nikunjo-1"
+            };
+            for (int i = 1; i <= 5; i++)
+            {
+                rents.Add(new RentCar()
+                {
+                    Id = i,
+                    Name = rcname[rand.Next(0, 5)],
+                    Address = catgname[rand.Next(0, 5)],
+                    CId = rand.Next(1, 6),
+
+                });
+            }
+            context.RentCars.AddOrUpdate(rents.ToArray());
+
+            List<Car> cars = new List<Car>();
+            string[] carname = new string[] { "Economy",
+                "Business",
+                "Luxury",
+                "Mini Bus",
+                "Compact SUV"
+            };
+
+            for (int i = 1; i < 200; i++)
+            {
+                cars.Add(new Car()
+                {
+                    Id = i,
+                    CategoryName = carname[rand.Next(0, 5)],
+                    Rent = rand.Next(3000, 10000),
+                    RentId = rand.Next(1, 6),
+                });
+            }
+            context.Cars.AddOrUpdate(cars.ToArray());
+
+            List<Customer> customers = new List<Customer>();
+            string[] customername = new string[] { "Ahnaf",
+                "Sizan",
+                "Sarah",
+                "Billal",
+                "Tonmoy"
+            };
+            string[] username = new string[] { "Ahnaf12",
+                "Sizan34",
+                "Sarah45",
+                "Billal12",
+                "Tonmoy78"
+            };
+            string[] passw = new string[] { "12345",
+                "45678",
+                "7997987",
+            };
+            string[] genderdemo = new string[] { "Male",
+                "Female",
+            };
+            string[] dobdemo = new string[] { "1-8-1998",
+                "01-01-1995",
+            };
+            for (int i = 1; i < 6; i++)
+            {
+                customers.Add(new Customer()
+                {
+                    Id = i,
+                    Name = customername[rand.Next(0, 5)],
+                    Username = username[rand.Next(0, 5)],
+                    Password = passw[rand.Next(0, 3)],
+                    Gender = genderdemo[rand.Next(0, 2)],
+                    DOB = dobdemo[rand.Next(0, 2)],
+                    AdminId = rand.Next(1, 8),
+                });
+            }
+            context.Customers.AddOrUpdate(customers.ToArray());
+
+
 
             //  This method will be called after migrating to the latest version.
 

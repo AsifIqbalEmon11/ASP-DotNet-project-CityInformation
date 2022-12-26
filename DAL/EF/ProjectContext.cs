@@ -13,6 +13,7 @@ namespace DAL.EF
         public DbSet<Division> Divisions { get; set; }
         public DbSet<City> Citys { get; set;}
         public DbSet<Hotel> Hotels { get; set;}
+        public DbSet<HotelBook> HotelBooks { get; set; }
         public DbSet<Car> Cars { get; set;}
         public DbSet<RentCar> RentCars { get; set;}
         public DbSet<Room> Rooms { get; set;}

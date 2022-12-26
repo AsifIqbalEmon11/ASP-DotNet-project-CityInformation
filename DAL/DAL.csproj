@@ -132,6 +132,18 @@
     <Compile Include="Migrations\202212251336394_Valid.designer.cs">
       <DependentUpon>202212251336394_Valid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212251830586_SeedValue.cs" />
+    <Compile Include="Migrations\202212251830586_SeedValue.designer.cs">
+      <DependentUpon>202212251830586_SeedValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251846517_valueAddeddd.cs" />
+    <Compile Include="Migrations\202212251846517_valueAddeddd.designer.cs">
+      <DependentUpon>202212251846517_valueAddeddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251853330_CustomerSeed.cs" />
+    <Compile Include="Migrations\202212251853330_CustomerSeed.designer.cs">
+      <DependentUpon>202212251853330_CustomerSeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\AdminRepo.cs" />
@@ -139,6 +151,7 @@
     <Compile Include="Repo\CarRepo.cs" />
     <Compile Include="Repo\CityRepo.cs" />
     <Compile Include="Repo\CustomerTokenRepo.cs" />
+    <Compile Include="Repo\HotelBookRepo.cs" />
     <Compile Include="Repo\ManagerTokenRepo.cs" />
     <Compile Include="Repo\CustomerRepo.cs" />
     <Compile Include="Repo\DivisionRepo.cs" />
@@ -200,6 +213,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212251336394_Valid.resx">
       <DependentUpon>202212251336394_Valid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251830586_SeedValue.resx">
+      <DependentUpon>202212251830586_SeedValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251846517_valueAddeddd.resx">
+      <DependentUpon>202212251846517_valueAddeddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251853330_CustomerSeed.resx">
+      <DependentUpon>202212251853330_CustomerSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -48,8 +48,10 @@
     <Compile Include="DTO\AdminDTO.cs" />
     <Compile Include="DTO\CarDTO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\HotelBookDTO.cs" />
     <Compile Include="DTO\HotelDTO.cs" />
     <Compile Include="DTO\ManagerDTO.cs" />
+    <Compile Include="DTO\AdminTokenDTO.cs" />
     <Compile Include="DTO\ManagerTokenDTO.cs" />
     <Compile Include="DTO\RentCarDTO.cs" />
     <Compile Include="DTO\RoomDTO.cs" />
@@ -61,7 +63,9 @@
     <Compile Include="Service\CityService.cs" />
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\DivisionService.cs" />
+    <Compile Include="Service\HotelBookService.cs" />
     <Compile Include="Service\HotelService.cs" />
+    <Compile Include="Service\AdminAuthService.cs" />
     <Compile Include="Service\ManagerAuthService.cs" />
     <Compile Include="Service\ManagerService.cs" />
     <Compile Include="Service\RentCarServices.cs" />
